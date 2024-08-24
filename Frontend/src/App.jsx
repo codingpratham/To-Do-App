@@ -1,8 +1,12 @@
 import React from 'react'
-
+import CreateTodo from './Component/CreateTodo'
+import Todos from './Component/Todos'
 const App = () => {
   return (
-    <div>App</div>
+    <>
+    <CreateTodo/>
+    <Todos/>
+    </>
   )
 }
 

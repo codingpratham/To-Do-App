@@ -12,7 +12,7 @@ Mongoose.connect('mongodb+srv://bro123:pratham@pratham.j9fifsz.mongodb.net/')
 const todoSchema=Mongoose.Schema({
     title:String,
     description:String,
-    completed:Boolean
+    completed:{type:Boolean, default:false}
 })
 
 const todoModel=Mongoose.model('todos',todoSchema)

@@ -6,7 +6,7 @@ app.use(express.json());
 
 app.post('/todos', async function(req, res){
     const createPayload=req.body
-    const parsedPayload=createTodo.safeParse(parsedPayload)
+    const parsedPayload=createTodo.safeParse(createPayload)
 
     if(!parsedPayload.success){
         res.status(411).json({
@@ -36,7 +36,7 @@ app.get('/todos', async function(req, res){
 
 app.put('/completed',async function(req,res){
     const updatePayload=req.body
-    const parsedPayload=updateTodo.safeParse(parsedPayload)
+    const parsedPayload=updateTodo.safeParse(updatePayload)
 
     if (!parsedPayload.success) {
         res.status(411).json({
@@ -52,7 +52,7 @@ app.put('/completed',async function(req,res){
     })
 
     res.json({
-        msg:"Todo markeds as Completed"
+        msg:"Todo markeds as Complete"
     })
 
 })
