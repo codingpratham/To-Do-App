@@ -1,11 +1,17 @@
 import React from 'react'
 
-const Todos = () => {
+const Todos = ({todos}) => {
   return (
     <>
-    <h1>go to gym</h1>
-    <h2>7-8 pm is the time</h2>
-    <button>Mark as completed</button>
+    {todos.map((todo,index)=>{
+        return(
+            <div key={index}>
+            <h1>{todo.title}</h1>
+            <h2>{todo.description}</h2>
+            <button>{todo.completed == true? "completed" : "Mark as completed"} </button>
+            </div>
+        )
+    })}
     </>
   )
 }

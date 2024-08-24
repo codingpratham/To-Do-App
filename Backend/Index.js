@@ -2,8 +2,9 @@ const express= require('express');
 const app = express();
 const {createTodo,updateTodo}=require('../Backend/types.js')
 const {todoModel}=require('./db.js')
+const cors=require('cors')
 app.use(express.json());
-
+app.use(cors())
 app.post('/todos', async function(req, res){
     const createPayload=req.body
     const parsedPayload=createTodo.safeParse(createPayload)
@@ -56,5 +57,7 @@ app.put('/completed',async function(req,res){
     })
 
 })
+
+
 
 app.listen(3000)
