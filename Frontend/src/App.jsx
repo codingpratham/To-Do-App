@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CreateTodo from './Component/CreateTodo';
 import Todos from './Component/Todos';
 
 const App = () => {
   const [todos,setTodos]=useState([])
 
-  fetch("http://localhost:3000/todos")
-  .then(async(res)=>{
-    const json=await res.json()
-    setTodos(json.todos)
-  })
+  useEffect(()=>{
+
+    fetch("http://localhost:3000/todos")
+    .then(async(res)=>{
+      const json=await res.json()
+      setTodos(json.todos)
+    })
+  },[todos])
   return (
     <>
       <CreateTodo />
