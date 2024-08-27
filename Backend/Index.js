@@ -3,6 +3,7 @@ const app = express();
 const {createTodo,updateTodo}=require('../Backend/types.js')
 const {todoModel}=require('./db.js')
 const cors=require('cors')
+const Port=3000
 app.use(express.json());
 app.use(cors())
 app.post('/todos', async function(req, res){
@@ -60,4 +61,4 @@ app.put('/completed',async function(req,res){
 
 
 
-app.listen(3000)
+app.listen(Port)
